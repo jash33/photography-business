@@ -1,0 +1,299 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<Layout title="Details">
+  <Hero 
+    title="Details"
+    subtitle="Investment & Experience"
+    backgroundImage="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1920&q=80"
+    height="medium"
+    overlayOpacity={0.3}
+  />
+  
+  <section class="details section">
+    <div class="details__container container container--narrow">
+      <div class="details__intro text-center">
+        <h2 class="details__heading">The Experience</h2>
+        <p class="details__subheading">
+          Every session is crafted around you — your story, your style, your love. Here's what to expect when we work together.
+        </p>
+      </div>
+      
+      <!-- Process Steps -->
+      <div class="details__process">
+        <div class="process-step">
+          <span class="process-step__number">01</span>
+          <h3 class="process-step__title">Connect</h3>
+          <p class="process-step__text">
+            It all starts with a conversation. Fill out my inquiry form, and I'll reach out to learn more about your vision and see if we're a great fit.
+          </p>
+        </div>
+        
+        <div class="process-step">
+          <span class="process-step__number">02</span>
+          <h3 class="process-step__title">Plan</h3>
+          <p class="process-step__text">
+            Once you book, we'll dive into the details together — locations, timing, wardrobe, and all the little things that make your session uniquely yours.
+          </p>
+        </div>
+        
+        <div class="process-step">
+          <span class="process-step__number">03</span>
+          <h3 class="process-step__title">Capture</h3>
+          <p class="process-step__text">
+            The fun part! I'll guide you through natural poses while capturing authentic moments. No stiff smiles — just real, beautiful you.
+          </p>
+        </div>
+        
+        <div class="process-step">
+          <span class="process-step__number">04</span>
+          <h3 class="process-step__title">Deliver</h3>
+          <p class="process-step__text">
+            Within 4-6 weeks, you'll receive your beautifully edited gallery via an online platform where you can download, share, and order prints.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Packages -->
+      <div class="details__packages">
+        <h2 class="details__section-title text-center">Investment</h2>
+        
+        <div class="packages-grid">
+          <div class="package">
+            <h3 class="package__title">Couples Session</h3>
+            <div class="package__price">Starting at $450</div>
+            <ul class="package__features">
+              <li>1-2 hour session</li>
+              <li>1 location</li>
+              <li>Wardrobe guidance</li>
+              <li>40+ edited images</li>
+              <li>Online gallery</li>
+              <li>Print release</li>
+            </ul>
+            <a href="/contact" class="btn">Inquire</a>
+          </div>
+          
+          <div class="package package--featured">
+            <span class="package__badge">Most Popular</span>
+            <h3 class="package__title">Engagement</h3>
+            <div class="package__price">Starting at $650</div>
+            <ul class="package__features">
+              <li>2-3 hour session</li>
+              <li>Up to 2 locations</li>
+              <li>Outfit change</li>
+              <li>60+ edited images</li>
+              <li>Online gallery</li>
+              <li>Print release</li>
+              <li>Save the date design</li>
+            </ul>
+            <a href="/contact" class="btn btn--filled">Inquire</a>
+          </div>
+          
+          <div class="package">
+            <h3 class="package__title">Portrait Session</h3>
+            <div class="package__price">Starting at $350</div>
+            <ul class="package__features">
+              <li>1 hour session</li>
+              <li>1 location</li>
+              <li>Styling tips</li>
+              <li>25+ edited images</li>
+              <li>Online gallery</li>
+              <li>Print release</li>
+            </ul>
+            <a href="/contact" class="btn">Inquire</a>
+          </div>
+        </div>
+        
+        <div class="details__wedding">
+          <h3 class="details__wedding-title">Wedding Collections</h3>
+          <p class="details__wedding-text">
+            Wedding collections begin at <strong>$3,500</strong> and include full-day coverage, a second photographer, engagement session, and more. Every wedding is unique, so I create custom packages tailored to your needs.
+          </p>
+          <a href="/contact" class="btn">Request Wedding Pricing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .details {
+    background: var(--color-cream);
+  }
+  
+  .details__intro {
+    margin-bottom: var(--spacing-3xl);
+  }
+  
+  .details__heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .details__subheading {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-charcoal);
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Process Steps */
+  .details__process {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-3xl);
+  }
+  
+  @media (min-width: 768px) {
+    .details__process {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .process-step {
+    text-align: center;
+    padding: var(--spacing-lg);
+  }
+  
+  .process-step__number {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--color-dusty-rose);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .process-step__title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .process-step__text {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--color-charcoal);
+    opacity: 0.8;
+  }
+  
+  /* Packages */
+  .details__section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 400;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .packages-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-3xl);
+  }
+  
+  @media (min-width: 900px) {
+    .packages-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .package {
+    position: relative;
+    background: var(--color-white);
+    padding: var(--spacing-xl);
+    text-align: center;
+    border: 1px solid var(--color-beige);
+  }
+  
+  .package--featured {
+    border-color: var(--color-dusty-rose);
+  }
+  
+  .package__badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--color-dusty-rose);
+    color: var(--color-white);
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: var(--spacing-xs) var(--spacing-md);
+  }
+  
+  .package__title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .package__price {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-terracotta);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .package__features {
+    list-style: none;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .package__features li {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-charcoal);
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid var(--color-beige);
+  }
+  
+  .package__features li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Wedding Section */
+  .details__wedding {
+    text-align: center;
+    padding: var(--spacing-2xl);
+    background: var(--color-white);
+    border: 1px solid var(--color-beige);
+  }
+  
+  .details__wedding-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .details__wedding-text {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-charcoal);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
+  }
+</style>

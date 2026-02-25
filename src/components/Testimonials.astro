@@ -1,0 +1,123 @@
+---
+interface Testimonial {
+  quote: string;
+  name: string;
+  location: string;
+  image?: string;
+}
+
+interface Props {
+  testimonials: Testimonial[];
+  heading?: string;
+}
+
+const { testimonials, heading = "Kind Words" } = Astro.props;
+---
+
+<section class="testimonials section">
+  <div class="testimonials__container container">
+    <h2 class="testimonials__heading">{heading}</h2>
+    
+    <div class="testimonials__grid">
+      {testimonials.map((testimonial) => (
+        <div class="testimonial">
+          {testimonial.image && (
+            <div class="testimonial__image-wrapper">
+              <img 
+                src={testimonial.image} 
+                alt={testimonial.name}
+                class="testimonial__image"
+                loading="lazy"
+              />
+            </div>
+          )}
+          <blockquote class="testimonial__quote">
+            <p>"{testimonial.quote}"</p>
+          </blockquote>
+          <div class="testimonial__attribution">
+            <span class="testimonial__name">{testimonial.name}</span>
+            <span class="testimonial__location">{testimonial.location}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    background: var(--color-white);
+  }
+  
+  .testimonials__heading {
+    text-align: center;
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .testimonials__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+  
+  @media (min-width: 768px) {
+    .testimonials__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .testimonial {
+    text-align: center;
+    padding: var(--spacing-lg);
+  }
+  
+  .testimonial__image-wrapper {
+    width: 120px;
+    height: 150px;
+    margin: 0 auto var(--spacing-lg);
+    overflow: hidden;
+  }
+  
+  .testimonial__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .testimonial__quote {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--color-charcoal);
+    margin: 0 0 var(--spacing-md);
+  }
+  
+  .testimonial__attribution {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .testimonial__name {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-charcoal);
+  }
+  
+  .testimonial__location {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--color-charcoal);
+    opacity: 0.6;
+  }
+</style>

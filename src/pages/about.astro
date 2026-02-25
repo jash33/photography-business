@@ -1,0 +1,128 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+
+---
+
+<Layout title="About">
+  <Hero 
+    title="About"
+    subtitle="The Artist Behind the Lens"
+    backgroundImage="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1920&q=80"
+    height="medium"
+    overlayOpacity={0.3}
+  />
+  
+  <section class="about section">
+    <div class="about__container container container--narrow">
+      <div class="about__intro text-center">
+        <span class="about__label">Hello, I'm</span>
+        <h2 class="about__name">Sarah Mitchell</h2>
+        <p class="about__tagline">Wedding & Portrait Photographer based in Arizona</p>
+      </div>
+      
+      <div class="about__portrait">
+        <img 
+          src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&q=80" 
+          alt="Sarah Mitchell - Photographer"
+          class="about__portrait-image"
+        />
+      </div>
+      
+      <div class="about__content">
+        <p>I've always believed that the best photographs aren't posed — they're felt. There's something magical about capturing the way your partner looks at you when they think no one's watching, or the way your grandmother dabs her eyes during your first dance.</p>
+        
+        <p>Photography found me in college when I borrowed a friend's camera for a weekend trip. What started as casual snapshots turned into an obsession with light, emotion, and the stories hidden in ordinary moments.</p>
+        
+        <p>Ten years later, I've had the honor of documenting over 200 weddings and countless love stories. Each one reminds me why I do this: because love deserves to be remembered beautifully.</p>
+        
+        <p>When I'm not behind the camera, you'll find me exploring the Arizona desert at golden hour, drinking too much coffee, or planning our next adventure with my husband and our golden retriever, Luna.</p>
+        
+        <blockquote class="about__quote">
+          "I photograph the way love feels — warm, authentic, and utterly yours."
+        </blockquote>
+      </div>
+      
+      <div class="about__cta text-center">
+        <a href="/contact" class="btn">Let's Create Together</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about {
+    background: var(--color-cream);
+  }
+  
+  .about__intro {
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .about__label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-terracotta);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .about__name {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .about__tagline {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    color: var(--color-charcoal);
+    opacity: 0.7;
+  }
+  
+  .about__portrait {
+    max-width: 400px;
+    margin: 0 auto var(--spacing-2xl);
+  }
+  
+  .about__portrait-image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+  
+  .about__content {
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .about__content p {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .about__quote {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-style: italic;
+    text-align: center;
+    color: var(--color-charcoal);
+    padding: var(--spacing-xl) 0;
+    margin: var(--spacing-xl) 0;
+    border-top: 1px solid var(--color-beige);
+    border-bottom: 1px solid var(--color-beige);
+  }
+  
+  .about__cta {
+    padding-top: var(--spacing-lg);
+  }
+</style>

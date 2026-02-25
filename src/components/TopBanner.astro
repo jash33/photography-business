@@ -1,0 +1,54 @@
+---
+// Top announcement banner
+---
+
+<div class="top-banner">
+  <div class="top-banner__content">
+    <span class="top-banner__text">Now booking weddings for 2025</span>
+    <a href="/contact" class="top-banner__cta">Inquire</a>
+  </div>
+</div>
+
+<style>
+  .top-banner {
+    background: var(--color-dusty-rose);
+    padding: var(--spacing-xs) var(--spacing-lg);
+  }
+  
+  .top-banner__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+  
+  .top-banner__text {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-white);
+  }
+  
+  .top-banner__cta {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-charcoal);
+    background: var(--color-white);
+    padding: 0.35rem 0.75rem;
+    border-radius: 0;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+  
+  .top-banner__cta:hover {
+    background: var(--color-cream);
+    color: var(--color-charcoal);
+  }
+</style>

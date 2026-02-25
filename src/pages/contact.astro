@@ -1,0 +1,234 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<Layout title="Contact">
+  <Hero 
+    title="Inquire"
+    subtitle="Let's Create Something Beautiful"
+    backgroundImage="https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=1920&q=80"
+    height="medium"
+    overlayOpacity={0.3}
+  />
+  
+  <section class="contact section">
+    <div class="contact__container container container--narrow">
+      <div class="contact__intro text-center">
+        <h2 class="contact__heading">I'd Love to Hear From You</h2>
+        <p class="contact__subheading">
+          Whether you're planning your dream wedding, celebrating an engagement, or simply want to capture this chapter of your love story, I'm here to help bring your vision to life.
+        </p>
+      </div>
+      
+      <form class="contact__form" action="#" method="POST">
+        <div class="contact__form-row">
+          <div class="contact__form-group">
+            <label for="name" class="contact__label">Your Name *</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              class="contact__input"
+              required
+            />
+          </div>
+          <div class="contact__form-group">
+            <label for="partner" class="contact__label">Partner's Name</label>
+            <input 
+              type="text" 
+              id="partner" 
+              name="partner" 
+              class="contact__input"
+            />
+          </div>
+        </div>
+        
+        <div class="contact__form-row">
+          <div class="contact__form-group">
+            <label for="email" class="contact__label">Email Address *</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              class="contact__input"
+              required
+            />
+          </div>
+          <div class="contact__form-group">
+            <label for="phone" class="contact__label">Phone Number</label>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              class="contact__input"
+            />
+          </div>
+        </div>
+        
+        <div class="contact__form-group">
+          <label for="session" class="contact__label">Session Type *</label>
+          <select id="session" name="session" class="contact__select" required>
+            <option value="">Please Select</option>
+            <option value="wedding">Wedding Photography</option>
+            <option value="engagement">Engagement Session</option>
+            <option value="couples">Couples Session</option>
+            <option value="portrait">Portrait Session</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <div class="contact__form-row">
+          <div class="contact__form-group">
+            <label for="date" class="contact__label">Preferred Date</label>
+            <input 
+              type="date" 
+              id="date" 
+              name="date" 
+              class="contact__input"
+            />
+          </div>
+          <div class="contact__form-group">
+            <label for="location" class="contact__label">Location</label>
+            <input 
+              type="text" 
+              id="location" 
+              name="location" 
+              class="contact__input"
+              placeholder="City, State"
+            />
+          </div>
+        </div>
+        
+        <div class="contact__form-group">
+          <label for="referral" class="contact__label">How did you find me?</label>
+          <select id="referral" name="referral" class="contact__select">
+            <option value="">Please Select</option>
+            <option value="instagram">Instagram</option>
+            <option value="google">Google Search</option>
+            <option value="referral">Friend/Family Referral</option>
+            <option value="wedding-wire">Wedding Wire</option>
+            <option value="the-knot">The Knot</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <div class="contact__form-group">
+          <label for="message" class="contact__label">Tell Me About Your Vision *</label>
+          <textarea 
+            id="message" 
+            name="message" 
+            class="contact__textarea"
+            rows="6"
+            placeholder="Share your story, your vision, and anything else you'd like me to know..."
+            required
+          ></textarea>
+        </div>
+        
+        <div class="contact__form-submit text-center">
+          <button type="submit" class="btn btn--filled">Send Inquiry</button>
+          <p class="contact__response-time">I typically respond within 24-48 hours</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact {
+    background: var(--color-cream);
+  }
+  
+  .contact__intro {
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .contact__heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .contact__subheading {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-charcoal);
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .contact__form {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .contact__form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  @media (min-width: 600px) {
+    .contact__form-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .contact__form-group {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .contact__label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .contact__input,
+  .contact__select,
+  .contact__textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--color-charcoal);
+    background: var(--color-white);
+    border: 1px solid var(--color-beige);
+    outline: none;
+    transition: border-color var(--transition-fast);
+  }
+  
+  .contact__input:focus,
+  .contact__select:focus,
+  .contact__textarea:focus {
+    border-color: var(--color-charcoal);
+  }
+  
+  .contact__textarea {
+    resize: vertical;
+    min-height: 150px;
+  }
+  
+  .contact__form-submit {
+    margin-top: var(--spacing-xl);
+  }
+  
+  .contact__response-time {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--color-charcoal);
+    opacity: 0.6;
+    margin-top: var(--spacing-sm);
+  }
+</style>

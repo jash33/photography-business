@@ -1,0 +1,230 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+
+// Sample blog posts
+const posts = [
+  {
+    title: "How to Prepare for Your Engagement Session",
+    excerpt: "From wardrobe tips to location scouting, here's everything you need to know to make your engagement photos absolutely stunning.",
+    image: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80",
+    date: "February 15, 2025",
+    category: "Tips & Advice",
+    slug: "engagement-session-prep"
+  },
+  {
+    title: "A Desert Elopement at Sunset",
+    excerpt: "When Sarah and Marcus decided to elope in the Arizona desert, they wanted something intimate, wild, and utterly romantic. This is their story.",
+    image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80",
+    date: "February 8, 2025",
+    category: "Real Weddings",
+    slug: "desert-elopement"
+  },
+  {
+    title: "The Best Time of Day for Outdoor Photos",
+    excerpt: "Golden hour gets all the attention, but there are actually several magical times to schedule your session. Let's break them down.",
+    image: "https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=800&q=80",
+    date: "January 28, 2025",
+    category: "Tips & Advice",
+    slug: "best-time-outdoor-photos"
+  },
+  {
+    title: "Intimate Garden Wedding in Scottsdale",
+    excerpt: "Isha and Nick's garden wedding was a celebration of love, family, and the most gorgeous florals you've ever seen.",
+    image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80",
+    date: "January 20, 2025",
+    category: "Real Weddings",
+    slug: "garden-wedding-scottsdale"
+  },
+  {
+    title: "What to Wear for Your Couples Session",
+    excerpt: "Coordinating outfits without being matchy-matchy is an art. Here are my top tips for nailing your session wardrobe.",
+    image: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&q=80",
+    date: "January 12, 2025",
+    category: "Tips & Advice",
+    slug: "couples-session-wardrobe"
+  },
+  {
+    title: "Mountain Top Vow Renewal",
+    excerpt: "After 25 years of marriage, Tom surprised his wife with a vow renewal at the top of their favorite hiking trail.",
+    image: "https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?w=800&q=80",
+    date: "January 5, 2025",
+    category: "Real Couples",
+    slug: "mountain-vow-renewal"
+  }
+];
+---
+
+<Layout title="Journal">
+  <Hero 
+    title="Journal"
+    subtitle="Stories, Tips & Inspiration"
+    backgroundImage="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?w=1920&q=80"
+    height="medium"
+    overlayOpacity={0.3}
+  />
+  
+  <section class="journal section">
+    <div class="journal__container container">
+      <div class="journal__filter">
+        <button class="journal__filter-btn journal__filter-btn--active">All Posts</button>
+        <button class="journal__filter-btn">Real Weddings</button>
+        <button class="journal__filter-btn">Tips & Advice</button>
+        <button class="journal__filter-btn">Real Couples</button>
+      </div>
+      
+      <div class="journal__grid">
+        {posts.map((post, index) => (
+          <article class={`post ${index === 0 ? 'post--featured' : ''}`}>
+            <a href={`/journal/${post.slug}`} class="post__link">
+              <div class="post__image-wrapper">
+                <img 
+                  src={post.image} 
+                  alt={post.title}
+                  class="post__image"
+                  loading="lazy"
+                />
+              </div>
+              <div class="post__content">
+                <span class="post__category">{post.category}</span>
+                <h2 class="post__title">{post.title}</h2>
+                <p class="post__excerpt">{post.excerpt}</p>
+                <span class="post__date">{post.date}</span>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .journal {
+    background: var(--color-white);
+  }
+  
+  .journal__filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .journal__filter-btn {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-charcoal);
+    background: transparent;
+    border: 1px solid var(--color-beige);
+    padding: var(--spacing-xs) var(--spacing-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+  
+  .journal__filter-btn:hover,
+  .journal__filter-btn--active {
+    background: var(--color-charcoal);
+    border-color: var(--color-charcoal);
+    color: var(--color-white);
+  }
+  
+  .journal__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+  
+  @media (min-width: 768px) {
+    .journal__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .post--featured {
+      grid-column: span 2;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .journal__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .post--featured {
+      grid-column: span 2;
+    }
+  }
+  
+  .post__link {
+    display: block;
+    text-decoration: none;
+  }
+  
+  .post__image-wrapper {
+    overflow: hidden;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .post__image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+  
+  .post__link:hover .post__image {
+    transform: scale(1.05);
+  }
+  
+  .post--featured .post__image {
+    aspect-ratio: 16 / 9;
+  }
+  
+  .post__category {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-terracotta);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .post__title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-sm);
+    transition: color var(--transition-fast);
+  }
+  
+  .post--featured .post__title {
+    font-size: 1.5rem;
+  }
+  
+  .post__link:hover .post__title {
+    color: var(--color-terracotta);
+  }
+  
+  .post__excerpt {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-charcoal);
+    opacity: 0.8;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .post__date {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--color-charcoal);
+    opacity: 0.5;
+  }
+</style>

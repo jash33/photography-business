@@ -1,0 +1,141 @@
+---
+interface Props {
+  heading?: string;
+  subheading?: string;
+  instagramHandle?: string;
+}
+
+const { 
+  heading = "Join the List",
+  subheading = "Be the first to know when we announce promotions and upcoming photo sessions.",
+  instagramHandle = "@athenaphotography"
+} = Astro.props;
+---
+
+<section class="newsletter section">
+  <div class="newsletter__container container container--narrow">
+    <div class="newsletter__instagram">
+      <a href="https://instagram.com" class="newsletter__handle" target="_blank" rel="noopener">
+        {instagramHandle}
+      </a>
+    </div>
+    
+    <h2 class="newsletter__heading">{heading}</h2>
+    <p class="newsletter__subheading">{subheading}</p>
+    
+    <form class="newsletter__form" action="#" method="POST">
+      <input 
+        type="email" 
+        name="email" 
+        placeholder="Email Address"
+        class="newsletter__input"
+        required
+        aria-label="Email address"
+      />
+      <button type="submit" class="newsletter__button">Sign Me Up!</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .newsletter {
+    background: var(--color-cream);
+    text-align: center;
+  }
+  
+  .newsletter__instagram {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .newsletter__handle {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--color-charcoal);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+  
+  .newsletter__handle:hover {
+    color: var(--color-terracotta);
+  }
+  
+  .newsletter__heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .newsletter__subheading {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-charcoal);
+    opacity: 0.7;
+    margin-bottom: var(--spacing-lg);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .newsletter__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 600px) {
+    .newsletter__form {
+      flex-direction: row;
+    }
+  }
+  
+  .newsletter__input {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    color: var(--color-charcoal);
+    background: var(--color-white);
+    border: 1px solid var(--color-beige);
+    outline: none;
+    transition: border-color var(--transition-fast);
+  }
+  
+  .newsletter__input::placeholder {
+    color: var(--color-tan);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+  }
+  
+  .newsletter__input:focus {
+    border-color: var(--color-charcoal);
+  }
+  
+  .newsletter__button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-charcoal);
+    background: transparent;
+    border: 1px solid var(--color-charcoal);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+  
+  .newsletter__button:hover {
+    background: var(--color-charcoal);
+    color: var(--color-white);
+  }
+</style>

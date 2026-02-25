@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SplitContent from '../components/SplitContent.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Newsletter from '../components/Newsletter.astro';
+
+// Sample gallery items (replace with real images)
+const galleryCategories = [
+  {
+    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80',
+    title: 'Wedding',
+    href: '/gallery?category=wedding'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=80',
+    title: 'Portrait',
+    href: '/gallery?category=portrait'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80',
+    title: 'Couples',
+    href: '/gallery?category=couples'
+  }
+];
+
+const testimonials = [
+  {
+    quote: "Working with Athena was an absolute dream. She captured every emotion, every glance, every tear of joy. Our wedding photos are more beautiful than we could have ever imagined.",
+    name: "Blakely & Jordan",
+    location: "Phoenix, Arizona",
+    image: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=400&q=80'
+  },
+  {
+    quote: "The way she captures light and movement is truly magical. Our engagement photos look like they belong in a magazine. We're so grateful we found her.",
+    name: "Isha & Nick",
+    location: "Las Vegas, Nevada",
+    image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&q=80'
+  }
+];
+---
+
+<Layout title="Home">
+  <!-- Hero Section -->
+  <Hero 
+    title="Athena"
+    subtitle="Wedding and Portrait Photography for Lovers"
+    backgroundImage="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1920&q=80"
+    overlayOpacity={0.15}
+  />
+  
+  <!-- Welcome Section -->
+  <SplitContent 
+    image="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=1200&q=80"
+    imagePosition="left"
+    label="Welcome"
+    heading="It's that feeling you get right before you lean in for a kiss"
+    content="There's a little flutter in your stomach as anticipation builds. That's the magic I live to capture — the in-between moments, the stolen glances, the pure joy of being in love. I believe your photos should feel as beautiful as your love story."
+    cta={{
+      text: "Our Style, Process & Pricing",
+      href: "/details"
+    }}
+  />
+  
+  <!-- Browse Categories -->
+  <section class="categories section">
+    <div class="container">
+      <div class="categories__header text-center">
+        <span class="categories__label">Browse The</span>
+        <h2 class="categories__heading">Galleries</h2>
+      </div>
+      <GalleryGrid items={galleryCategories} columns={3} />
+    </div>
+  </section>
+  
+  <!-- Journal Preview -->
+  <SplitContent 
+    image="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?w=1200&q=80"
+    imagePosition="right"
+    label="The Journal"
+    heading="Like a drop in the ocean"
+    content="Stories, tips, and behind-the-scenes glimpses into our sessions. Discover real love stories, planning advice, and inspiration for your own journey."
+    cta={{
+      text: "View The Post",
+      href: "/journal"
+    }}
+  />
+  
+  <!-- Testimonials -->
+  <Testimonials 
+    testimonials={testimonials}
+    heading="Testimonials"
+  />
+  
+  <!-- Newsletter -->
+  <Newsletter 
+    instagramHandle="@athenaphotography"
+  />
+</Layout>
+
+<style>
+  .categories {
+    background: var(--color-white);
+  }
+  
+  .categories__header {
+    margin-bottom: var(--spacing-2xl);
+  }
+  
+  .categories__label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-charcoal);
+    opacity: 0.6;
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .categories__heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--color-charcoal);
+  }
+</style>

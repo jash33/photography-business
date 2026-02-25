@@ -1,0 +1,217 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/gallery', label: 'Images' },
+  { href: '/details', label: 'Details' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/journal', label: 'Journal' },
+];
+---
+
+<header class="header">
+  <div class="header__container">
+    <a href="/" class="header__logo">
+      <span class="header__logo-text">ATHENA</span>
+    </a>
+    
+    <nav class="header__nav" aria-label="Main navigation">
+      <ul class="header__nav-list">
+        {navLinks.map((link) => (
+          <li class="header__nav-item">
+            <a href={link.href} class="header__nav-link">{link.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    
+    <button class="header__menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="header__menu-bar"></span>
+      <span class="header__menu-bar"></span>
+      <span class="header__menu-bar"></span>
+    </button>
+  </div>
+  
+  <!-- Mobile Menu -->
+  <div class="header__mobile-menu" aria-hidden="true">
+    <nav class="header__mobile-nav">
+      <ul class="header__mobile-nav-list">
+        {navLinks.map((link) => (
+          <li class="header__mobile-nav-item">
+            <a href={link.href} class="header__mobile-nav-link">{link.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-cream);
+    border-bottom: 1px solid var(--color-beige);
+  }
+  
+  .header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+  
+  .header__logo {
+    text-decoration: none;
+  }
+  
+  .header__logo-text {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: var(--color-charcoal);
+  }
+  
+  .header__nav {
+    display: none;
+  }
+  
+  .header__nav-list {
+    display: flex;
+    gap: var(--spacing-xl);
+    list-style: none;
+  }
+  
+  .header__nav-link {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-charcoal);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+  
+  .header__nav-link:hover {
+    color: var(--color-terracotta);
+  }
+  
+  /* Mobile Menu Toggle */
+  .header__menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 28px;
+    height: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .header__menu-bar {
+    width: 100%;
+    height: 1.5px;
+    background: var(--color-charcoal);
+    transition: all var(--transition-normal);
+  }
+  
+  .header__menu-toggle[aria-expanded="true"] .header__menu-bar:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+  
+  .header__menu-toggle[aria-expanded="true"] .header__menu-bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .header__menu-toggle[aria-expanded="true"] .header__menu-bar:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+  
+  /* Mobile Menu */
+  .header__mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+    z-index: 99;
+  }
+  
+  .header__mobile-menu[aria-hidden="false"] {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .header__mobile-nav-list {
+    list-style: none;
+    text-align: center;
+  }
+  
+  .header__mobile-nav-item {
+    margin: var(--spacing-md) 0;
+  }
+  
+  .header__mobile-nav-link {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--color-charcoal);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+  
+  .header__mobile-nav-link:hover {
+    color: var(--color-terracotta);
+  }
+  
+  /* Desktop */
+  @media (min-width: 900px) {
+    .header__nav {
+      display: block;
+    }
+    
+    .header__menu-toggle {
+      display: none;
+    }
+    
+    .header__mobile-menu {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const menuToggle = document.querySelector('.header__menu-toggle');
+  const mobileMenu = document.querySelector('.header__mobile-menu');
+  
+  menuToggle?.addEventListener('click', () => {
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', (!isExpanded).toString());
+    mobileMenu?.setAttribute('aria-hidden', isExpanded.toString());
+    document.body.style.overflow = isExpanded ? '' : 'hidden';
+  });
+  
+  // Close menu when clicking a link
+  document.querySelectorAll('.header__mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle?.setAttribute('aria-expanded', 'false');
+      mobileMenu?.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
