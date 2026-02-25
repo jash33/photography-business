@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 
+const base = import.meta.env.BASE_URL;
+
 // Sample blog posts
 const posts = [
   {
@@ -76,7 +78,7 @@ const posts = [
       <div class="journal__grid">
         {posts.map((post, index) => (
           <article class={`post ${index === 0 ? 'post--featured' : ''}`}>
-            <a href={`/journal/${post.slug}`} class="post__link">
+            <a href={`${base}journal/${post.slug}/`} class="post__link">
               <div class="post__image-wrapper">
                 <img 
                   src={post.image} 

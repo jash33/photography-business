@@ -1,11 +1,12 @@
 ---
 // Top announcement banner
+const base = import.meta.env.BASE_URL;
 ---
 
 <div class="top-banner">
   <div class="top-banner__content">
     <span class="top-banner__text">Now booking weddings for 2025</span>
-    <a href="/contact" class="top-banner__cta">Inquire</a>
+    <a href={`${base}contact/`} class="top-banner__cta">Inquire</a>
   </div>
 </div>
 

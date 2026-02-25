@@ -6,22 +6,24 @@ import GalleryGrid from '../components/GalleryGrid.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Newsletter from '../components/Newsletter.astro';
 
+const base = import.meta.env.BASE_URL;
+
 // Sample gallery items (replace with real images)
 const galleryCategories = [
   {
     image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80',
     title: 'Wedding',
-    href: '/gallery?category=wedding'
+    href: `${base}gallery/?category=wedding`
   },
   {
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=80',
     title: 'Portrait',
-    href: '/gallery?category=portrait'
+    href: `${base}gallery/?category=portrait`
   },
   {
     image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80',
     title: 'Couples',
-    href: '/gallery?category=couples'
+    href: `${base}gallery/?category=couples`
   }
 ];
 
@@ -59,7 +61,7 @@ const testimonials = [
     content="There's a little flutter in your stomach as anticipation builds. That's the magic I live to capture — the in-between moments, the stolen glances, the pure joy of being in love. I believe your photos should feel as beautiful as your love story."
     cta={{
       text: "Our Style, Process & Pricing",
-      href: "/details"
+      href: `${base}details/`
     }}
   />
   
@@ -83,7 +85,7 @@ const testimonials = [
     content="Stories, tips, and behind-the-scenes glimpses into our sessions. Discover real love stories, planning advice, and inspiration for your own journey."
     cta={{
       text: "View The Post",
-      href: "/journal"
+      href: `${base}journal/`
     }}
   />
   

@@ -1,20 +1,21 @@
 ---
 const currentYear = new Date().getFullYear();
+const base = import.meta.env.BASE_URL;
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/gallery', label: 'Gallery' },
-  { href: '/details', label: 'Details' },
-  { href: '/contact', label: 'Contact' },
-  { href: '/journal', label: 'Journal' },
+  { href: `${base}`, label: 'Home' },
+  { href: `${base}about/`, label: 'About' },
+  { href: `${base}gallery/`, label: 'Gallery' },
+  { href: `${base}details/`, label: 'Details' },
+  { href: `${base}contact/`, label: 'Contact' },
+  { href: `${base}journal/`, label: 'Journal' },
 ];
 ---
 
 <footer class="footer">
   <div class="footer__container">
     <div class="footer__brand">
-      <a href="/" class="footer__logo">ATHENA</a>
+      <a href={base} class="footer__logo">ATHENA</a>
       <p class="footer__tagline">Wedding & Portrait Photography</p>
     </div>
     

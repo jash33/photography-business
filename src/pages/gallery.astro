@@ -3,61 +3,63 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import GalleryGrid from '../components/GalleryGrid.astro';
 
+const base = import.meta.env.BASE_URL;
+
 // Sample gallery images (replace with real portfolio)
 const galleryImages = [
   {
     image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80',
     title: 'Sarah & James',
     category: 'Wedding',
-    href: '/gallery/sarah-james'
+    href: `${base}gallery/sarah-james/`
   },
   {
     image: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&q=80',
     title: 'Desert Dreams',
     category: 'Couples',
-    href: '/gallery/desert-dreams'
+    href: `${base}gallery/desert-dreams/`
   },
   {
     image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80',
     title: 'Golden Hour Love',
     category: 'Engagement',
-    href: '/gallery/golden-hour'
+    href: `${base}gallery/golden-hour/`
   },
   {
     image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&q=80',
     title: 'Intimate Moments',
     category: 'Wedding',
-    href: '/gallery/intimate-moments'
+    href: `${base}gallery/intimate-moments/`
   },
   {
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=80',
     title: 'Natural Beauty',
     category: 'Portrait',
-    href: '/gallery/natural-beauty'
+    href: `${base}gallery/natural-beauty/`
   },
   {
     image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80',
     title: 'Sunset Vows',
     category: 'Wedding',
-    href: '/gallery/sunset-vows'
+    href: `${base}gallery/sunset-vows/`
   },
   {
     image: 'https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?w=800&q=80',
     title: 'Wild & Free',
     category: 'Couples',
-    href: '/gallery/wild-free'
+    href: `${base}gallery/wild-free/`
   },
   {
     image: 'https://images.unsplash.com/photo-1460978812857-470ed1c77af0?w=800&q=80',
     title: 'Classic Romance',
     category: 'Engagement',
-    href: '/gallery/classic-romance'
+    href: `${base}gallery/classic-romance/`
   },
   {
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
     title: 'Modern Portrait',
     category: 'Portrait',
-    href: '/gallery/modern-portrait'
+    href: `${base}gallery/modern-portrait/`
   }
 ];
 ---
@@ -85,7 +87,7 @@ const galleryImages = [
       
       <div class="gallery__cta text-center">
         <p class="gallery__cta-text">Ready to create your own love story?</p>
-        <a href="/contact" class="btn">Get In Touch</a>
+        <a href={`${import.meta.env.BASE_URL}contact/`} class="btn">Get In Touch</a>
       </div>
     </div>
   </section>
